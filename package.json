@@ -1,14 +1,13 @@
 {
-  "name": "react-parcel-template",
+  "name": "lists",
   "version": "1.0.0",
   "description": "A template for a react project",
   "main": "index.js",
   "scripts": {
     "parcel": "parcel src/index.html",
     "watch": "parcel watch src/index.html --out-file index.html -d build/",
-    "dist": "npm run copyfiles && set NODE_ENV = 'production' && parcel build src/index.html --public-url /app -d dist/static --no-source-maps",
-    "copyfiles": "rm -rf dist/* && cp -r package.json src/servers dist",
-    "sass": "node-sass res/admin.scss res/admin.css"
+    "dist": "npm run copyfiles && set NODE_ENV = 'production' && parcel build src/index.html /app -d dist/static --no-source-maps",
+    "copyfiles": "rm -rf dist/* && cp -r package.json src/servers dist"
   },
   "babel": {
     "presets": [
@@ -24,8 +23,15 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "@atlaskit/button": "^13.3.12",
+    "@atlaskit/css-reset": "^5.0.10",
+    "@atlaskit/icon": "^20.1.2",
+    "@atlaskit/icon-object": "^5.0.3",
+    "@atlaskit/inline-edit": "^10.0.32",
+    "@atlaskit/page": "^11.0.13",
     "react": "^16.13.1",
-    "react-dom": "^16.13.1"
+    "react-dom": "^16.13.1",
+    "styled-components": "^5.1.0"
   },
   "devDependencies": {
     "@babel/core": "^7.7.0",
