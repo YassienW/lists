@@ -3,11 +3,11 @@ import Page, {Grid, GridColumn} from "@atlaskit/page";
 import List from "./List";
 
 //traverses all tasks and calls a function for each task
-function traverseAndCall(items, callBack){
+function traverseAndCall(items, callback){
     items.forEach((item) => {
-        callBack(item);
+        callback(item);
         if(item.items){
-            return {...item, items: traverseAndReplace(item.items)};
+            return {...item, items: traverseAndReplace(item.items, callback)};
         }else{
             return item;
         }
