@@ -40,7 +40,6 @@ export default function App() {
         let totalEstimatedHours = 0;
         let totalHoursTaken = 0;
         traverseAndCall(items, (item) => {
-            console.log(item)
             totalEstimatedHours+= item.estimatedHours;
             totalHoursTaken+= item.hoursTaken;
         })
