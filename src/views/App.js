@@ -7,7 +7,7 @@ function traverseAndCall(items, callback){
     items.forEach((item) => {
         callback(item);
         if(item.items){
-            return {...item, items: traverseAndReplace(item.items, callback)};
+            return {...item, items: traverseAndCall(item.items, callback)};
         }else{
             return item;
         }
@@ -40,6 +40,7 @@ export default function App() {
         let totalEstimatedHours = 0;
         let totalHoursTaken = 0;
         traverseAndCall(items, (item) => {
+            console.log(item)
             totalEstimatedHours+= item.estimatedHours;
             totalHoursTaken+= item.hoursTaken;
         })
