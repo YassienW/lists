@@ -27,12 +27,14 @@ function traverseAndReplace(items, targetId, key, value){
         }
     });
 }
+
+const loadedItems = localStorage.getItem("list");
 const initialItems = [
     {id: "0", title: "Item 1", estimatedHours: 0, hoursTaken: 0, items: []}
 ];
 
 export default function App() {
-    const [items, setItems] = useState(initialItems);
+    const [items, setItems] = useState(loadedItems? JSON.parse(loadedItems): initialItems);
     const [totalEstimatedHours, setTotalEstimatedHours] = useState(0);
     const [totalHoursTaken, setTotalHoursTaken] = useState(0);
 
@@ -45,6 +47,9 @@ export default function App() {
         })
         setTotalEstimatedHours(totalEstimatedHours);
         setTotalHoursTaken(totalHoursTaken);
+
+        //save the list to localStorage
+        localStorage.setItem("list", JSON.stringify(items));
     }, [items]);
 
     //itemId refers to the ID of the item who's key we need to set to value
