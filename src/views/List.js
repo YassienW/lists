@@ -1,5 +1,7 @@
 import React, {useState} from "react";
 import ListItem from "./ListItem";
+import {Input, Button, Navbar} from 'rsuite';
+
 
 export default function List({parentItemId, items, updateItem}) {
     const [newItemTitle, setNewItemTitle] = useState("");
@@ -40,8 +42,8 @@ export default function List({parentItemId, items, updateItem}) {
     return (
         <ol>
             {listComponents}
-            <input value={newItemTitle} onChange={(e) => setNewItemTitle(e.target.value)}/>
-            <button onClick={() => appendToItems(parentItemId, items)}>Add item</button>
+            <Input value={newItemTitle} onChange={(value) => setNewItemTitle(value)}/>
+            <Button onClick={() => appendToItems(parentItemId, items)}>Add item</Button>
         </ol>
     );
 }

@@ -1,5 +1,5 @@
 import React, {useState, useEffect} from "react";
-import Page, {Grid, GridColumn} from "@atlaskit/page";
+import {Container, Header, Content, Footer, Navbar, Dropdown, Nav, Icon} from "rsuite";
 import List from "./List";
 
 //traverses all tasks and calls a function for each task
@@ -63,16 +63,26 @@ export default function App() {
         }
     }
     return (
-        <Page>
-            <Grid>
-                <GridColumn medium={12}>
-                    <List items={items} updateItem={updateItem}/>
-                </GridColumn>
-                <GridColumn medium={12}>
-                    <h4>Total Estimated Hours: {totalEstimatedHours}</h4>
-                    <h4>Total Hours Taken: {totalHoursTaken}</h4>
-                </GridColumn>
-            </Grid>
-        </Page>
+        <Container>
+            <Header>
+                <Navbar>
+                    <Navbar.Header>
+
+                    </Navbar.Header>
+                    <Navbar.Body>
+                        <Nav pullRight>
+                            <Nav.Item icon={<Icon icon="github"/>}/>
+                        </Nav>
+                    </Navbar.Body>
+                </Navbar>
+            </Header>
+            <Content>
+                <List items={items} updateItem={updateItem}/>
+            </Content>
+            <Footer>
+                <h4>Total Estimated Hours: {totalEstimatedHours}</h4>
+                <h4>Total Hours Taken: {totalHoursTaken}</h4>
+            </Footer>
+        </Container>
     );
 }

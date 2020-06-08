@@ -1,4 +1,5 @@
 import React, {useState} from "react";
+import {Button, IconButton, Icon, Input} from "rsuite";
 
 export default function ListItem({title, hasSublist, estimatedHours, hoursTaken, addSublist, updateItem, deleteItem}) {
     const [isEditing, setIsEditing] = useState(!title);
@@ -10,9 +11,11 @@ export default function ListItem({title, hasSublist, estimatedHours, hoursTaken,
     if(isEditing){
         mainComponent = (
             <>
-                <input value={inputTitle} onChange={(e) => setInputTitle(e.target.value)}/>
-                <button onClick={() => {updateItem("title", inputTitle);setIsEditing(false);}}>&#x02713;</button>
-                <button onClick={() => title? setIsEditing(false): deleteItem()}>&#x02717;</button>
+                <Input value={inputTitle} onChange={(value) => setInputTitle(value)}/>
+                <IconButton icon={<Icon icon="check"/>} color="green"
+                            onClick={() => {updateItem("title", inputTitle);setIsEditing(false);}}/>
+                <IconButton icon={<Icon icon="close"/>} color="red"
+                            onClick={() => title? setIsEditing(false): deleteItem()}/>
             </>
         );
     }
@@ -23,9 +26,10 @@ export default function ListItem({title, hasSublist, estimatedHours, hoursTaken,
                 <div className="list-item" onMouseEnter={() => setShowOptions(true)}
                      onMouseLeave={() => setShowOptions(false)}>
                     {mainComponent}
-                    {showOptions && !isEditing && <div className="controls">
-                        {!hasSublist && <button onClick={addSublist}>Add Sublist</button>}
-                        <button onClick={deleteItem}>Delete</button>
+                    {showOptions && !isEditing &&
+                    <div>
+                        {!hasSublist && <Button onClick={addSublist}>Add Sublist</Button>}
+                        <Button onClick={deleteItem}>Delete</Button>
                     </div>}
                 </div>
                 <div className="hours-input">

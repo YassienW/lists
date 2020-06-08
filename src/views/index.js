@@ -2,7 +2,7 @@ import ReactDOM from "react-dom";
 import React from "react";
 import {hot} from "react-hot-loader";
 import App from "./App";
-import "@atlaskit/css-reset/dist/bundle.css";
+import "rsuite/dist/styles/rsuite-default.css"
 import "../../res/styles.scss";
 
 /*if (process.env.NODE_ENV !== "production"){
