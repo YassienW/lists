@@ -31,7 +31,7 @@ export default function List({parentItemId, items, updateItem}) {
     }
     //itemId refers to the item we want to append to its list
     function appendToItems(itemId, targetItems){
-        const id = itemId? `${itemId}-${targetItems.length}`: targetItems.length.toString();
+        const id = itemId? `${itemId}-${Date.now()}`: Date.now();
         const newItems = [...targetItems, {title: newItemTitle, id, estimatedHours: 0, hoursTaken: 0, items: []}];
 
         updateItem(itemId, "items", newItems);
