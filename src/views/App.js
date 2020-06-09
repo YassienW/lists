@@ -77,13 +77,13 @@ export default function App() {
     return (
         <Container>
             <Header>
-                <Navbar appearance="inverse">
+                <Navbar id="navbar" appearance="inverse">
                     <Navbar.Header>
 
                     </Navbar.Header>
                     <Navbar.Body>
                         <Nav pullRight>
-                            <Nav.Item icon={<Icon icon="github" size="lg"/>}/>
+                            <Nav.Item icon={<Icon fixedWidth icon="github" size="lg"/>}/>
                         </Nav>
                     </Navbar.Body>
                 </Navbar>
