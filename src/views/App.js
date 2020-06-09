@@ -1,5 +1,5 @@
 import React, {useState, useEffect} from "react";
-import {Container, Header, Content, Footer, Navbar, Dropdown, Nav, Icon} from "rsuite";
+import {Container, Header, Content, Navbar, Nav, Icon, Grid, Row, Col} from "rsuite";
 import List from "./List";
 
 //traverses all tasks and calls a function for each task
@@ -65,24 +65,32 @@ export default function App() {
     return (
         <Container>
             <Header>
-                <Navbar>
+                <Navbar appearance="inverse">
                     <Navbar.Header>
 
                     </Navbar.Header>
                     <Navbar.Body>
                         <Nav pullRight>
-                            <Nav.Item icon={<Icon icon="github"/>}/>
+                            <Nav.Item icon={<Icon icon="github" size="lg"/>}/>
                         </Nav>
                     </Navbar.Body>
                 </Navbar>
             </Header>
-            <Content>
-                <List items={items} updateItem={updateItem}/>
+            <Content id="main-content">
+                <Grid>
+                    <Row>
+                        <Col xs={24}>
+                            <List items={items} updateItem={updateItem}/>
+                        </Col>
+                    </Row>
+                    <Row>
+                        <Col xs={24}>
+                            <h4>Total Estimated Hours: {totalEstimatedHours}</h4>
+                            <h4>Total Hours Taken: {totalHoursTaken}</h4>
+                        </Col>
+                    </Row>
+                </Grid>
             </Content>
-            <Footer>
-                <h4>Total Estimated Hours: {totalEstimatedHours}</h4>
-                <h4>Total Hours Taken: {totalHoursTaken}</h4>
-            </Footer>
         </Container>
     );
 }
