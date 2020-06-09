@@ -43,7 +43,8 @@ export default function List({parentItemId, items, updateItem}) {
             {listComponents}
             <FlexboxGrid align="middle" className="list-item">
                 <FlexboxGrid.Item colspan={14}>
-                    <Input value={newItemTitle} onChange={(value) => setNewItemTitle(value)} size="sm"/>
+                    <Input value={newItemTitle} onChange={(value) => setNewItemTitle(value)} size="sm"
+                           onKeyDown={(e) => e.keyCode === 13? appendToItems(parentItemId, items): null}/>
                 </FlexboxGrid.Item>
                 <FlexboxGrid.Item colspan={10} className="controls">
                     <Button size="sm" appearance="primary"

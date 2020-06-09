@@ -20,6 +20,7 @@ export default function ListItem({title, hasSublist, estimatedHours, hoursTaken,
                     <FlexboxGrid.Item colspan={14} className="input" onClick={() => setIsEditing(true)}>
                         {!isEditing && <span>{title}</span>}
                         {isEditing && <Input autoFocus size="sm" value={inputTitle}
+                                             onKeyDown={(e) => e.keyCode === 13? commitUpdate(): null}
                                              onChange={(value) => setInputTitle(value)}/>}
                     </FlexboxGrid.Item>
                     <FlexboxGrid.Item colspan={10} className="controls">
