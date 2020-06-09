@@ -79,14 +79,25 @@ export default function App() {
             <Content id="main-content">
                 <Grid>
                     <Row>
+                        <Col xs={12}>
+                            <h5>12 items</h5>
+                            <p>12 done, 12 remaining</p>
+                        </Col>
+                        <Col xs={12}>
+
+                        </Col>
+                    </Row>
+                    <hr/>
+                    <Row>
                         <Col xs={24}>
                             <List items={items} updateItem={updateItem}/>
                         </Col>
                     </Row>
+                    <hr/>
                     <Row>
                         <Col xs={24}>
-                            <h4>Total Estimated Hours: {totalEstimatedHours}</h4>
-                            <h4>Total Hours Taken: {totalHoursTaken}</h4>
+                            <h5>Total Estimated Hours: {totalEstimatedHours}</h5>
+                            <h5>Total Hours Taken: {totalHoursTaken}</h5>
                         </Col>
                     </Row>
                 </Grid>
