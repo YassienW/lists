@@ -14,7 +14,8 @@ export default function ListItem({title, hasSublist, estimatedHours, hoursTaken,
                              onMouseLeave={() => setShowOptions(false)}>
                     <FlexboxGrid.Item colspan={14} className="input" onClick={() => setIsEditing(!isEditing)}>
                         {!isEditing && <span>{title}</span>}
-                        {isEditing && <Input size="sm" value={inputTitle} onChange={(value) => setInputTitle(value)}/>}
+                        {isEditing && <Input autoFocus size="sm" value={inputTitle}
+                                             onChange={(value) => setInputTitle(value)}/>}
                     </FlexboxGrid.Item>
                     <FlexboxGrid.Item colspan={10} className="controls">
                         {isEditing &&
