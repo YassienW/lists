@@ -27,7 +27,7 @@ export default function ListItem({title, hasSublist, estimatedHours, hoursTaken,
                         {showOptions && !isEditing &&
                         <>
                             {!hasSublist && <Button size="sm" onClick={addSublist}>Add Sublist</Button>}
-                            <Button size="sm" onClick={deleteItem}>Delete</Button>
+                            <Button size="sm" onClick={deleteItem} color="red">Delete</Button>
                         </>}
                     </FlexboxGrid.Item>
                 </FlexboxGrid>
