@@ -4,7 +4,7 @@
   "description": "A template for a react project",
   "main": "index.js",
   "scripts": {
-    "parcel": "parcel src/index.html",
+    "parcel": "parcel src/index.html -d build/",
     "dist": "rm -rf dist && mkdir dist && set NODE_ENV = 'production' && parcel build src/index.html -d dist --no-source-maps"
   },
   "babel": {
