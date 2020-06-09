@@ -6,6 +6,11 @@ export default function ListItem({title, hasSublist, estimatedHours, hoursTaken,
     const [showOptions, setShowOptions] = useState(false);
     const [inputTitle, setInputTitle] = useState(title);
 
+    function commitUpdate(){
+        updateItem("title", inputTitle);
+        setIsEditing(false);
+    }
+
     return (
         <li>
             <FlexboxGrid justify="space-between" align="middle">
@@ -20,8 +25,7 @@ export default function ListItem({title, hasSublist, estimatedHours, hoursTaken,
                     <FlexboxGrid.Item colspan={10} className="controls">
                         {isEditing &&
                         <>
-                            <IconButton size="sm" icon={<Icon icon="check"/>} color="green"
-                                        onClick={() => {updateItem("title", inputTitle);setIsEditing(false);}}/>
+                            <IconButton size="sm" icon={<Icon icon="check"/>} color="green" onClick={commitUpdate}/>
                             <IconButton size="sm" icon={<Icon icon="close"/>} color="red"
                                         onClick={() => title? setIsEditing(false): deleteItem()}/>
                         </>}
