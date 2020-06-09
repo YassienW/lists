@@ -30,23 +30,35 @@ function traverseAndReplace(items, targetId, key, value){
 
 const loadedItems = localStorage.getItem("list");
 const initialItems = [
-    {id: "0", title: "Item 1", estimatedHours: 0, hoursTaken: 0, items: []}
+    {id: "0", title: "Item 1", estimatedHours: 0, hoursTaken: 0, checked: false, items: []}
 ];
 
 export default function App() {
     const [items, setItems] = useState(loadedItems? JSON.parse(loadedItems): initialItems);
     const [totalEstimatedHours, setTotalEstimatedHours] = useState(0);
     const [totalHoursTaken, setTotalHoursTaken] = useState(0);
+    const [checked, setChecked] = useState(0);
+    const [unchecked, setUnchecked] = useState(0);
 
     useEffect(() => {
         let totalEstimatedHours = 0;
         let totalHoursTaken = 0;
+        let checked = 0;
+        let unchecked = 0;
         traverseAndCall(items, (item) => {
             totalEstimatedHours+= item.estimatedHours;
             totalHoursTaken+= item.hoursTaken;
+
+            if(item.checked){
+                checked++;
+            }else{
+                unchecked++
+            }
         })
         setTotalEstimatedHours(totalEstimatedHours);
         setTotalHoursTaken(totalHoursTaken);
+        setChecked(checked);
+        setUnchecked(unchecked);
 
         //save the list to localStorage
         localStorage.setItem("list", JSON.stringify(items));
@@ -80,8 +92,8 @@ export default function App() {
                 <Grid>
                     <Row>
                         <Col xs={12}>
-                            <h5>12 items</h5>
-                            <p>12 done, 12 remaining</p>
+                            <h5>{checked + unchecked} items</h5>
+                            <p>{checked} done, {unchecked} remaining</p>
                         </Col>
                         <Col xs={12}>
 
