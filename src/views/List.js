@@ -1,7 +1,6 @@
 import React, {useState} from "react";
 import ListItem from "./ListItem";
-import {Input, Button, Navbar} from 'rsuite';
-
+import {Input, Button, FlexboxGrid} from 'rsuite';
 
 export default function List({parentItemId, items, updateItem}) {
     const [newItemTitle, setNewItemTitle] = useState("");
@@ -42,8 +41,15 @@ export default function List({parentItemId, items, updateItem}) {
     return (
         <ol>
             {listComponents}
-            <Input value={newItemTitle} onChange={(value) => setNewItemTitle(value)}/>
-            <Button onClick={() => appendToItems(parentItemId, items)}>Add item</Button>
+            <FlexboxGrid align="middle" className="list-item">
+                <FlexboxGrid.Item colspan={14}>
+                    <Input value={newItemTitle} onChange={(value) => setNewItemTitle(value)} size="sm"/>
+                </FlexboxGrid.Item>
+                <FlexboxGrid.Item colspan={10} className="controls">
+                    <Button size="sm" appearance="primary"
+                            onClick={() => appendToItems(parentItemId, items)}>Add item</Button>
+                </FlexboxGrid.Item>
+            </FlexboxGrid>
         </ol>
     );
 }

@@ -2,25 +2,35 @@
 
 @base-color: #880061;
 
-input{
-  margin-top: 5px;
-  margin-bottom: 5px;
+#main-content{
+  margin-top: 30px;
 }
-.row{
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  .list-item{
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    width: 200px;
+.list-item{
+  width: 550px;
+  margin-bottom: 10px;
+
+  .controls{
+    padding-left: 20px;
+
+    button:not(:last-child){
+      margin-right: 15px;
+    }
   }
-  .hours-input{
-    input{
-      width: 50px
+
+  &:not(.editing){
+    .input{
+      height: @input-height-small;
+      border-radius: @input-border-radius-small;
+      padding: @padding-small-vertical @padding-small-horizontal;
+
+      &:hover{
+        cursor: text;
+        background: @H050;
+      }
     }
   }
 }
-
+.hours-input{
+  width: 150px;
+}
 
