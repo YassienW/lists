@@ -83,7 +83,8 @@ export default function App() {
                     </Navbar.Header>
                     <Navbar.Body>
                         <Nav pullRight>
-                            <Nav.Item icon={<Icon fixedWidth icon="github" size="lg"/>}/>
+                            <Nav.Item icon={<Icon fixedWidth icon="github" size="lg"/>}
+                                      href="https://github.com/YassienW/lists"/>
                         </Nav>
                     </Navbar.Body>
                 </Navbar>
